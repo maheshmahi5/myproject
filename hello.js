@@ -42,7 +42,7 @@ const init = async() => {
         path:'/api/books',
         handler: (request, h) => {
         //return books;
-        connection.query('SELECT book_id, title, author_lname FROM books',
+        connection.query('SELECT  *  FROM books',
        function (error, results, fields) {
        if (error) throw error;
  
