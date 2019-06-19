@@ -1,0 +1,154 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1>
+  <div class=outerborder>
+      
+ 
+      <table align=center>
+      <tr>
+        <td >Full Name</td>
+        <td>Date of Birth </td>
+      </tr>
+      <tr>
+        <td><input id="name" name="name" class="form-control"
+          required minlength="4"
+          [(ngModel)]="fullname" #name="ngModel" ></td>
+        <td><input id="dob" name="dob" class="form-control"
+          required pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}"
+          [(ngModel)]="dateofbirth" #dob="ngModel" ></td>
+      </tr>
+      <tr>
+        <td class=a><div *ngIf="name.invalid && (name.dirty || name.touched)">
+          <!-- class="alert alert-danger"-->
+      
+        <div *ngIf="name.errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="name.errors.minlength">
+          Name must be at least 4 characters long.
+        </div>
+      
+      </div></td>
+    
+      <td class=b><div *ngIf="dob.invalid && (dob.dirty || dob.touched)"
+        class="alert alert-danger">
+    
+      <div *ngIf="dob.errors.required">
+        Date of birth is required.
+      </div>
+      <div *ngIf="dob.errors.pattern">
+        Date of Birth should be in the format dd/mm/yyyy.
+      </div>
+    
+    </div></td>
+    
+      
+      </tr>
+      <tr>
+        <td>Email Address</td>
+        <td>Phone Number</td>
+      </tr>
+      <tr>
+          <td><input id="mail" name="mail" class="form-control"
+            required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            [(ngModel)]="email" #mail="ngModel" ></td>
+          <td><input id="number" name="number" class="form-control"
+            required minlength="10"
+            [(ngModel)]="phonenumber" #number="ngModel" ></td>
+        </tr>
+        <tr>
+        
+          <td class=c><div *ngIf="mail.invalid && (mail.dirty || mail.touched)"
+            class="alert alert-danger">
+        
+          <div *ngIf="mail.errors.required">
+            email is required.
+          </div>
+          <div *ngIf="mail.errors.pattern">
+            email should be in the format of @gmail.com
+          </div>
+        
+        </div></td>
+        <td class=d><div *ngIf="number.invalid && (number.dirty || number.touched)"
+          class="alert alert-danger">
+      
+        <div *ngIf="number.errors.required">
+          phonenumber is required.
+        </div>
+        <div *ngIf="number.errors.minlength">
+          phone number must be atleast 10 characters.
+        </div>
+      
+      </div></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Tell us about yourself</td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td rowspan="3"><textarea cols="20" rows="10" name="about" [(ngModel)]="yourself" #about="ngModel" ></textarea>   </td>
+        </tr>
+        <tr>
+          <td><input id="password" name="password" class="form-control"
+            required  pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})"
+            [(ngModel)]="word" #password="ngModel" > </td>
+        
+      
+        </tr>
+        <tr>
+        
+            <td class=e><div *ngIf="password.invalid && (password.dirty || password.touched)"
+              class="alert alert-danger">
+          
+            <div *ngIf="password.errors.required">
+              password is required.
+            </div>
+            <div *ngIf="password.errors.pattern">
+              password must have required pattern.
+            </div>
+          
+          </div></td>
+
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td><input list="browsers" name="browser" [(ngModel)]="dropdown" #browser="ngModel">
+            <datalist id="browsers">
+              <option value="Telegana">
+              <option value="Andhrapradesh">
+              <option value="kerala">
+              <option value="viyanagaram">
+  
+            </datalist></td>
+            <td> <input type="radio" name="gender" value="male" checked [(ngModel)]="m" #gender="ngModel"> Male
+              <input type="radio" name="gender" value="female" [(ngModel)]="f" #gender="ngModel"> Female</td>
+        </tr>
+        <tr>
+          <td colspan="2"> <input type="checkbox" name="vehicle1" value="Bike" [(ngModel)]="check" #vehicle1="ngModel">I want recieve email about updates to website</td>
+        </tr>
+        <br>
+        <br>
+        <tr>
+          <td  align=center colspan="2"><button class="mybutton" >RegisterS</button></td>
+        </tr>
+        
+    
+    </table>
+  
+   
+    </div>
+  
+</div>
+
+ 
+
+
+  
+
+
+<router-outlet></router-outlet>
